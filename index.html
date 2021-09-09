@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="ja">
 
-<head>
-    <meta charset="UTF-8">
-    <title>Hello!</title> <!--タブのタイトルはこれで決まる-->
-    <style>
-        h1 { font-size:2.5em; font-family:cursive; color:#ff0000;}
-        h2 { font-size:2.0em; font-family:fantasy; color:rgb(0,255,255);}
-        p { font-size:1.2em; font-family:sans-serif; color:blue;}
-        span{ font:bold italic 1.7em serif; color:white; background-color:magenta; }
-    </style>
+    <head>
+        <meta charset="UTF-8">
+        <title>Hello!</title>
+        <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
+    </head>
     <!--CSSを追加するには上のタグ-->
-<body>
-    <h1>Hello!</h1><!--見出し-->
-    <h2>Hello!</h2>
-    <p>これはサンプルです</p> <!--本文の表示-->
-    <p>This is <span>Sample</span> content.</p>
-</body>
+    <body class="container">
+        <p><script>
+            class Keisan {
+                constructer(data){
+                    this.data = data;
+                    }
+                calc(){
+                    var total = 0;
+                    for(var n in this.data){
+                        total += this.data[n];
+                        }
+                    return total;
+                    }
+                report(){
+                    document.write('<div class="alert alert-info">');
+                    document.write('Data:'+this.data+'<br>');
+                    document.write('total:'+this.calc());
+                    document.write('</div>');
+                    }
+                }
+
+            var k1 = new Keisan([12,34,56,78,90]);
+            k1.report();
+            var k2 = new Keisan([109,87,65,43,21]);
+            k2.report();
+        </script></p>
+    </body>
 
 </html>
 
