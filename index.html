@@ -9,32 +9,32 @@
     </head>
     <!--CSSを追加するには上のタグ-->
     <body class="container">
-        <p><script>
-            class Keisan {
-                constructer(data){
-                    this.data = data;
-                    }
-                calc(){
-                    var total = 0;
-                    for(var n in this.data){
-                        total += this.data[n];
-                        }
-                    return total;
-                    }
-                report(){
-                    document.write('<div class="alert alert-info">');
-                    document.write('Data:'+this.data+'<br>');
-                    document.write('total:'+this.calc());
-                    document.write('</div>');
-                    }
-                }
-
-            var k1 = new Keisan([12,34,56,78,90]);
-            k1.report();
-            var k2 = new Keisan([109,87,65,43,21]);
-            k2.report();
-        </script></p>
-    </body>
-
+        <h1>Hello!</h1>
+        <p id="msg">フォームを入力:</p>
+        <div class="form-group">
+            <label for="fl">Name</label>
+            <input type="text" id="f1" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="f2">Password</label>
+            <input type="password" id="f2" class="form-control">
+        </div>
+        <div class="form-group">
+            <button onclick="action(event)" class= "btn btn-primary">
+                Click
+            </button>
+        </div>
+        <script>
+            function action(event){
+                var f1 = document.querySelector('#f1');
+                var f2 = document.querySelector('#f2');
+                var result = 'Your name :' + f1.value +  '<br>'
+                    + 'Password:(' + f2.value.length +'chars)';
+                var msg = document.querySelector('#msg');
+                msg.innerHTML = result;
+            
+            }
+        </script>
+        </body>
 </html>
 
