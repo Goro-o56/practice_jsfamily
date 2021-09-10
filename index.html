@@ -8,43 +8,33 @@
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
     </head>
     <!--CSSを追加するには上のタグ-->
-    <body>
-        <h1>Hello!</h1>
-        <p id="msg" class="h3 p-2">RGBを設定:</p>
-        <div class="form-group">
-            <label for="R">R</label>
-            <input type="range" id="R" min="0" max="255"
-                class="form-control-range" oninput="action()">
-        </div>
-        <div class="form-group">
-            <label for="G">G</label>
-            <input type="range" id="G" min="0" max="255"
-                class="form-control-range" oninput="action()">
-        </div>
-        <div class="form-group">
-            <label for="B">B</label>
-            <input type="range" id="B" min="0" max="255"
-                class="form-control-range" oninput="action()">
-        </div>
-        
-        <script>
-        function action(){
-            var R = document.querySelector('#R');
-            var G = document.querySelector('#G');
-            var B = document.querySelector('#B');
+<body class = "container">
+    <h1>Hello!</h1>
+    <p id="msg">Select Color!</p>
+    <div class="form-group">
+        <label for = "f2">Color</label>
+        <Select id = "list" class="form-control" onclick="action(event)">
+            <option>-</option>
+            <option>primary</option>
+            <option>secondary</option>
+            <option>success</option>
+        </Select>
+    </div>
+    <script>
+        function action(event){
+            var list = document.querySelector('#list');
             var msg = document.querySelector('#msg');
-            var color = R.value +',' + G.value +',' + B.value ;
-            msg.style.backgroundColor = 'rgb(' + color + ')';
-            var val = R.value + G.value + B.value;
-            if (val > 360){
-                msg.style.color = 'black';
-                }else{
-                msg.style.color = 'white';
-                }
-                msg.textContent = '[' + color + ']';
+            if (list.value == '-'){
+                msg.textContent = 'Select Color!';
+                msg.className = '';
+                return;
             }
-            action();
-        </script>
-        </body>
+            msg.className = '';
+            msg.classList.add('alert');
+            msg.classList.add('alert-' + list.value);
+            msg.textContent = 'アラートカラーを"' + list.value + '"に変更しました'
+       }
+    </script>
+</body>
 </html>
 
